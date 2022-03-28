@@ -11,23 +11,33 @@ export default function App() {
     register,
     formState: { errors },
     handleSubmit
-  } = useForm<IFormInput>()
+  } = useForm<IFormInput>({ mode: 'onBlur' })
   const onSubmit: SubmitHandler<IFormInput> = data => console.log(data)
 
   return (
-    <div>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <label>
-          <p>Login</p> <input {...register('login', { required: true, maxLength: 20 })} />
-          <p>{errors.login?.type === 'required' && 'Login is required'}</p>
-        </label>
-
-        <label>
-          <p>Password</p> <input {...register('password', { required: true, minLength: 8 })} />
-          <p>{errors.password && 'Password is required'}</p>
-        </label>
+    <div className="w-screen h-screen flex items-center justify-center bg-gray-100">
+      <form className="h-1/3" onSubmit={handleSubmit(onSubmit)}>
         <div>
-          <input type="submit" />
+          <input
+            className="my-2 px-4 py-3 focus:outline-none focus:bg-green-100 hover:bg-green-100"
+            placeholder="Login"
+            {...register('login', { required: true, maxLength: 20 })}
+          />
+        </div>
+        <div>
+          <input
+            className="my-2 px-4 py-3 focus:outline-none focus:bg-green-100 hover:bg-green-100"
+            placeholder="Password"
+            {...register('password', { required: true, minLength: 8 })}
+          />
+        </div>
+
+        <div>
+          <input
+            className="mt-2 w-full px-4 py-4 bg-white hover:bg-green-100 focus:outline-none focus:bg-green-100 uppercase font-mono font-bold"
+            type="submit"
+            value="Sign in"
+          />
         </div>
       </form>
     </div>
