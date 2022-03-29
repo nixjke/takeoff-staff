@@ -12,11 +12,13 @@ export default function App() {
     formState: { errors },
     handleSubmit
   } = useForm<IFormInput>({ mode: 'onBlur' })
-  const onSubmit: SubmitHandler<IFormInput> = data => console.log(data)
+  const onSubmit: SubmitHandler<IFormInput> = data => {
+    console.log(data)
+  }
 
   return (
     <div className="w-screen h-screen flex items-center justify-center bg-gray-100">
-      <form className="" onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <div>
           <input
             className="my-2 px-4 py-3 focus:outline-none focus:bg-green-100 hover:bg-green-100 transition-colors"
