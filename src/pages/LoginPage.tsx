@@ -1,4 +1,3 @@
-import React from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form'
 
 interface IFormInput {
@@ -28,6 +27,7 @@ export default function App() {
         </div>
         <div>
           <input
+            type="password"
             className="my-2 px-4 py-3 focus:outline-none focus:bg-green-100 hover:bg-green-100 transition-colors"
             placeholder="Password"
             {...register('password', { required: true, minLength: 8 })}
@@ -36,7 +36,7 @@ export default function App() {
 
         <div>
           <input
-            className="mt-2 w-full px-4 py-4 bg-white hover:bg-green-100 focus:outline-none focus:bg-green-100 transition-colors uppercase font-mono font-bold"
+            className="cursor-pointer mt-2 w-full px-4 py-4 bg-white hover:bg-green-100 focus:outline-none focus:bg-green-100 transition-colors uppercase font-mono font-bold"
             type="submit"
             value="Sign in"
           />
