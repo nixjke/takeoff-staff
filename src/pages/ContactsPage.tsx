@@ -1,3 +1,7 @@
+import { Navigate } from 'react-router-dom'
+import { useAuth } from '../hooks/use-auth'
+
 export default function ContactsPage() {
-  return <div>Contacts Page</div>
+  const { isAuth } = useAuth()
+  return isAuth ? <div>Contacts Page</div> : <Navigate to="/" />
 }
