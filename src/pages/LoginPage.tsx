@@ -1,18 +1,39 @@
+import axios from 'axios'
+import { error } from 'console'
 import { useForm, SubmitHandler } from 'react-hook-form'
+import { useNavigate } from 'react-router-dom'
 
 interface IFormInput {
-  login: string
+  email: string
   password: string
 }
 
 export default function App() {
+  const navigate = useNavigate()
+
+  const handleLogin = async (email: string, password: string) => {
+    try {
+      await axios({
+        method: 'POST',
+        url: 'http://localhost:3001/login',
+        data: {
+          email: email,
+          password: password
+        }
+      })
+      navigate('/contacts')
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   const {
     register,
     formState: { errors },
     handleSubmit
   } = useForm<IFormInput>({ mode: 'onBlur' })
   const onSubmit: SubmitHandler<IFormInput> = data => {
-    console.log(data)
+    handleLogin(data.email, data.password)
   }
 
   return (
@@ -22,7 +43,7 @@ export default function App() {
           <input
             className="my-2 px-4 py-3 focus:outline-none focus:bg-green-100 hover:bg-green-100 transition-colors"
             placeholder="Login"
-            {...register('login', { required: true, maxLength: 20 })}
+            {...register('email', { required: true, maxLength: 20 })}
           />
         </div>
         <div>

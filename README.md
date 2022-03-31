@@ -2,8 +2,14 @@
 
 ## `npm start`
 
-## `npm test`
+## `npm run db`
 
-## `npm run build`
+### `npm test`
 
-## `npm run eject`
+### `npm run build`
+
+### `npm run eject`
+
+|Login|Password|
+|-|-|
+|```admin@mail.ru```|```Passw0rd```|
