@@ -1,7 +1,8 @@
 import axios from 'axios'
-import { error } from 'console'
+import { useAppDispatch } from '../store/hooks'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
+import { setUser } from '../store/slices/userSlice'
 
 interface IFormInput {
   email: string
@@ -9,11 +10,12 @@ interface IFormInput {
 }
 
 export default function App() {
+  const dispatch = useAppDispatch()
   const navigate = useNavigate()
 
   const handleLogin = async (email: string, password: string) => {
     try {
-      await axios({
+      const response = await axios({
         method: 'POST',
         url: 'http://localhost:3001/login',
         data: {
@@ -21,6 +23,13 @@ export default function App() {
           password: password
         }
       })
+      dispatch(
+        setUser({
+          email: response.data.user.email,
+          id: response.data.user.id,
+          accessToken: response.data.accessToken
+        })
+      )
       navigate('/contacts')
     } catch (error) {
       console.log(error)
