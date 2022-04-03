@@ -5,5 +5,13 @@
       "password": "$2a$10$lRu3wl3Y6HIuwaD13mlgNecs/IhX45haFE.SWwaTR12rU6qsUpvZi",
       "id": 1
     }
+  ],
+  "contacts": [
+    {
+      "name": "Aziz",
+      "phone": "89996328064",
+      "email": "admin@mail.ru",
+      "id": 1
+    }
   ]
 }

@@ -9,7 +9,7 @@ interface IFormInput {
   password: string
 }
 
-export default function App() {
+export default function LoginPage() {
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
 
@@ -36,11 +36,7 @@ export default function App() {
     }
   }
 
-  const {
-    register,
-    formState: { errors },
-    handleSubmit
-  } = useForm<IFormInput>({ mode: 'onBlur' })
+  const { register, handleSubmit } = useForm<IFormInput>({ mode: 'onBlur' })
   const onSubmit: SubmitHandler<IFormInput> = data => {
     handleLogin(data.email, data.password)
   }
