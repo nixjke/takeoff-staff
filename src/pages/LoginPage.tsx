@@ -1,8 +1,9 @@
 import axios from 'axios'
 import { useAppDispatch } from '../store/hooks'
 import { useForm, SubmitHandler } from 'react-hook-form'
-import { useNavigate } from 'react-router-dom'
+import { Navigate, useNavigate } from 'react-router-dom'
 import { setUser } from '../store/slices/userSlice'
+import { useAuth } from '../hooks/use-auth'
 
 interface IFormInput {
   email: string
@@ -12,6 +13,7 @@ interface IFormInput {
 export default function LoginPage() {
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
+  const { isAuth } = useAuth()
 
   const handleLogin = async (email: string, password: string) => {
     try {
@@ -41,7 +43,7 @@ export default function LoginPage() {
     handleLogin(data.email, data.password)
   }
 
-  return (
+  return !isAuth ? (
     <div className="w-screen h-screen flex items-center justify-center bg-gray-100">
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
@@ -69,5 +71,7 @@ export default function LoginPage() {
         </div>
       </form>
     </div>
+  ) : (
+    <Navigate to="/contacts" />
   )
 }
