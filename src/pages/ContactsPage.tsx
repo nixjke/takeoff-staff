@@ -1,6 +1,5 @@
-import { Navigate } from 'react-router-dom'
-import { useAuth } from '../hooks/use-auth'
 import Sidebar from '../components/Sidebar'
+import { useAuth } from '../hooks/use-auth'
 
 export default function ContactsPage() {
   const { isAuth } = useAuth()
@@ -10,6 +9,10 @@ export default function ContactsPage() {
       <div className="ml-24 sm:ml-40 transition-all">Contacts asdasd Page</div>
     </div>
   ) : (
-    <Navigate to="/" />
+    // Вернуть <Navigate to="/" />
+    <div>
+      <Sidebar></Sidebar>
+      <div className="ml-24 sm:ml-40 transition-all">Contacts asdasd Page</div>
+    </div>
   )
 }

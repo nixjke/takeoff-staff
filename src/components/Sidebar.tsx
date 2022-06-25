@@ -21,7 +21,7 @@ export default function Sidebar() {
           <button
             onClick={() => sorting(el)}
             className="mx-auto my-2 py-2 w-20 sm:w-32 transition-all flex justify-center bg-white hover:bg-green-100"
-            key={el + index}
+            key={index}
           >
             {el}
           </button>

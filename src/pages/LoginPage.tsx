@@ -1,9 +1,9 @@
 import axios from 'axios'
-import { useAppDispatch } from '../store/hooks'
-import { useForm, SubmitHandler } from 'react-hook-form'
+import { SubmitHandler, useForm } from 'react-hook-form'
 import { Navigate, useNavigate } from 'react-router-dom'
-import { setUser } from '../store/slices/userSlice'
 import { useAuth } from '../hooks/use-auth'
+import { useAppDispatch } from '../store/hooks'
+import { setUser } from '../store/slices/userSlice'
 
 interface IFormInput {
   email: string
@@ -22,14 +22,14 @@ export default function LoginPage() {
         url: 'http://localhost:3001/login',
         data: {
           email: email,
-          password: password
-        }
+          password: password,
+        },
       })
       dispatch(
         setUser({
           email: response.data.user.email,
           id: response.data.user.id,
-          accessToken: response.data.accessToken
+          accessToken: response.data.accessToken,
         })
       )
       navigate('/contacts')

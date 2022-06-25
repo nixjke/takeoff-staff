@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
   email: null,
   id: null,
-  accessToken: null
+  accessToken: null,
 }
 
 const userSlice = createSlice({
@@ -16,12 +16,11 @@ const userSlice = createSlice({
       state.accessToken = action.payload.accessToken
     },
     removeUser(state) {
-      console.log('removeUser')
       state.email = null
       state.id = null
       state.accessToken = null
-    }
-  }
+    },
+  },
 })
 
 export const { setUser, removeUser } = userSlice.actions

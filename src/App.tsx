@@ -1,6 +1,6 @@
-import LoginPage from './pages/LoginPage'
-import ContactsPage from './pages/ContactsPage'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import ContactsPage from './pages/ContactsPage'
+import LoginPage from './pages/LoginPage'
 
 function App() {
   return (

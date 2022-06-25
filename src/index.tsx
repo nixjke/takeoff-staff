@@ -1,10 +1,9 @@
 import ReactDOM from 'react-dom'
-import './index.css'
-import App from './App'
-import { store, persistor } from './store/store'
 import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'
-import * as serviceWorker from './serviceWorker'
+import App from './App'
+import './index.css'
+import { persistor, store } from './store/store'
 
 ReactDOM.render(
   <Provider store={store}>
@@ -14,5 +13,3 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root')
 )
-
-serviceWorker.unregister()

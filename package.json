@@ -20,7 +20,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "db": "json-server-auth db.json -p 3001"
+    "db": "json-server-auth db.json -w -p 3001"
   },
   "eslintConfig": {
     "extends": "react-app"
