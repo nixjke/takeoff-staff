@@ -1,14 +1,16 @@
 # Available Scripts
 
-## `npm start`
+```bash
+npm start
 
-## `npm run db`
+npm run db
 
-### `npm test`
+npm test
 
-### `npm run build`
+npm run build
 
-### `npm run eject`
+npm run eject
+```
 
 |Login|Password|
 |-|-|
